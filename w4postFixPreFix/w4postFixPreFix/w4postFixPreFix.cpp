@@ -14,25 +14,29 @@ using namespace std;
 
 
 int main(){
+	int a = 3;
+	int b = 4;
+	int c = 5;
 	cout << "Adalyn Behan, PostFix, PreFix, 9/17/25" << endl;
-cout << "\nPostFix, PreFix Example:" << endl;
+	cout << "\nPostFix, PreFix Example:" << endl;
+
 	// Postfix example (also known as Reverse Polish Notation)
 	// Infix: (3 + 4) * 5
 	// Postfix: 3 4 + 5 *
 	cout << "Postfix Example (3 4 + 5 *):" << endl;
-	int a = 3;
-	int b = 4;
-	int c = 5;
-	int postFixResult = (a + b) * c; // equivalent to postfix evaluation
+	int postFixResult = (a + b) * c; 
 	cout << "Result: " << postFixResult << endl;
+
 	// Prefix example
 	// Infix: (3 + 4) * 5
-	// Prefix: * + 3 4 5
-	cout << "\nPrefix Example (* + 3 4 5):" << endl;
-	int prefixResult = (a + b) * c; // equivalent to prefix evaluation
+	// Prefix: * 5 + 3 4
+	cout << "\nPrefix Example (* 5 + 3 4):" << endl;
+	int prefixResult = (a + b) * c; 
 	cout << "Result: " << prefixResult << endl;
+
+
 	cout << "This is the end of the program." << endl;
-    
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

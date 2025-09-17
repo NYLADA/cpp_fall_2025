@@ -8,7 +8,7 @@
 */
 #include <iostream>
 using namespace std;
-
+ 
 //I decided to go with volleyball teams from the anime haikyuu for the theme
 enum teams { Karasuno, Fukurodani, Nekoma, Aoba_Johsai, Date_Tech };
 
