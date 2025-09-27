@@ -1,24 +1,32 @@
-/* Lab 2 - Week 2
+// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
-* Adalyn Behan
-
-* 9/6/25
-
-* Each prisoner 1-10 must find his own # that is randomy placed in boxers. 
-    But each prisoner may only open half of the boxes. 
-*/
-
-#include <iostream>
-#include <string>
+#include<iostream>
+#include <vector>
 using namespace std;
 
-int main() {
-	int prisonerNum[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	string boxNum[10] = { 'A','B','C','D','E','F','G','H','I','J'};
+struct Student {
+    string name;
+    int age;
+};
+void display(string n, int a) {
+    cout << "Name: " << n << endl;
+    cout << "Age:" << a << endl;
+}
+int main()
+{
+    vector<Student> classList;
 
-    cout << "Adalyn Behan, Lab 2, 9/2/25" << endl;
+  
+
+    // Display
+   
 
 }
+
+
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

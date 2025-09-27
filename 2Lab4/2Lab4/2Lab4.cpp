@@ -2,20 +2,186 @@
 
 * Adalyn Behan
 
-* 9/17/25
+* 9/23/25
 
-* Prompt the user to enter their name
-
-* Bubble Sort the characters into alphabetical order
-
-* How would the code change if we wanted reverse alphabetical order?
+* Using Enums – (R)ock (P)aper & (S)cissors to represent 1-3 choices,
+1. Create a game Rock, Paper, Scissors and play against the computer.
+2. Prompt the user to enter their choice but Protect against invalid data.
+3. The computer will randomly choose 1-3 after the player makes his choice.
+4. Record all wins, ties and losses in their respective Vectors
+5. Play until someone scores 5 wins
 */
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib>  // For rand() and srand()
+#include <ctime>    // For time()
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+/*void resultsFile() {
+    ifstream file("RPSresults.txt");
+    if (file.is_open()) {
+        string wins; // string that is used to grab data from file
+        while (getline(file, wins)) {  //reads each line from the file
+            cout << wins << endl;
+        }
+        file.close();
+    }
+    else {
+        cout << "Unable to open file." << endl;  //for debugging
+    }
+}
+
+//function to clear the results
+void clearResultsFile() {
+    ofstream file("RPSresults.txt", ios::trunc);
+    file.close();
+}
+// Function to update the results file with new totals
+void updateResultsFile(int pWinIn, int cWinIn, int tieIn) {
+    int pWins = 0;
+    int cWins = 0;
+    int ties = 0;
+
+    ifstream inFile("RPSresults.txt");
+    string results;
+    if (inFile.is_open()) {
+        while (getline(inFile, results)) {
+            if (results.find("Player Wins") != string::npos)
+                pWins = stoi(results.substr(results.find(":") + 2));
+            else if (results.find("Computer Wins") != string::npos)
+                cWins = stoi(results.substr(results.find(":") + 2));
+            else if (results.find("Ties") != string::npos)
+                ties = stoi(results.substr(results.find(":") + 2));
+        }
+        inFile.close();
+    }
+
+    pWins += pWinIn;
+    cWins += cWinIn;
+    ties += tieIn;
+
+    ofstream outFile("RPSresults.txt");
+    if (outFile.is_open()) {
+        outFile << "Player Wins: " << pWins << endl;
+        outFile << "Computer Wins: " << cWins << endl;
+        outFile << "Ties: " << ties << endl;
+        outFile.close();
+    }
+    else {
+        cout << "Unable to open file." << endl;
+    }
+
+}*/
+int main(){
+    vector<int> playerWinsVec;
+    vector<int> computerWinsVec;
+    vector<int> tiesVec;
+
+    enum choice { Rock = 1, Paper, Scissors };
+    choice player, computer;
+    int playerWins = 0;
+    int computerWins = 0;
+    int ties = 0;
+    int input;
+	srand(static_cast<unsigned int>(time(0))); // Seed for random number generation
+    
+    cout << "Adalyn Behan, Lab 4, 9/26/25" << endl;
+    cout << "Welcome to Rock, Paper, Scissors." << endl;
+
+    
+    do {
+		cout << "Player Wins: " << playerWins << " \tComputer Wins: " << computerWins << " \tTies: " << ties << endl;
+        cout << "Please input your choice: (1) Rock, (2) Paper, (3) Scissors: ";
+        
+        cin >> input;
+        while (cin.fail() || input < 1 || input > 3) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid choice. Please enter 1, 2, or 3: ";
+            cin >> input;
+        }
+        player = static_cast<choice>(input);
+
+
+        cout << "\nComputer is choosing..." << endl;
+		computer = rand() % 3 + 1; // Random choice between 1 and 3
+        cout << "Computer chose: " << computer << endl;
+
+        switch (player) {
+        case Rock:
+            switch (computer) {
+            case Rock:
+                cout << "It's a tie!" << endl;
+                ties++;
+                tiesVec.push_back(ties);
+                break;
+            case Paper:
+                cout << "Computer wins this round!" << endl;
+                computerWins++;
+                computerWinsVec.push_back(computerWins);
+                break;
+            case Scissors:
+                cout << "You win this round!" << endl;
+                playerWins++;
+                playerWinsVec.push_back(playerWins);
+                break;
+            }
+            break;
+
+        case Paper:
+            switch (computer) {
+            case Rock:
+                cout << "You win this round!" << endl;
+                playerWins++;
+                playerWinsVec.push_back(playerWins);
+                break;
+            case Paper:
+                cout << "It's a tie!" << endl;
+                ties++;
+                tiesVec.push_back(ties);
+                break;
+            case Scissors:
+                cout << "Computer wins this round!" << endl;
+                computerWins++;
+                computerWinsVec.push_back(computerWins);
+                break;
+            }
+            break;
+
+        case Scissors:
+            switch (computer) {
+            case Rock:
+                cout << "Computer wins this round!" << endl;
+                computerWins++;
+                computerWinsVec.push_back(computerWins);
+                break;
+            case Paper:
+                cout << "You win this round!" << endl;
+                playerWins++;
+                playerWinsVec.push_back(playerWins);
+                break;
+            case Scissors:
+                cout << "It's a tie!" << endl;
+                ties++;
+                tiesVec.push_back(ties);
+                break;
+            }
+            break;
+        }
+
+    } while (playerWins < 5 && computerWins < 5);
+
+    if (playerWins == 5) {
+        cout << "You reached 5 wins first!" << endl;
+    }
+    else {
+        cout << "Computer reached 5 wins first!" << endl;
+    }
+
+    cout << "This is the end of the program." << endl;
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
