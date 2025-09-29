@@ -19,62 +19,7 @@
 #include <ctime>    // For time()
 using namespace std;
 
-/*void resultsFile() {
-    ifstream file("RPSresults.txt");
-    if (file.is_open()) {
-        string wins; // string that is used to grab data from file
-        while (getline(file, wins)) {  //reads each line from the file
-            cout << wins << endl;
-        }
-        file.close();
-    }
-    else {
-        cout << "Unable to open file." << endl;  //for debugging
-    }
-}
-
-//function to clear the results
-void clearResultsFile() {
-    ofstream file("RPSresults.txt", ios::trunc);
-    file.close();
-}
-// Function to update the results file with new totals
-void updateResultsFile(int pWinIn, int cWinIn, int tieIn) {
-    int pWins = 0;
-    int cWins = 0;
-    int ties = 0;
-
-    ifstream inFile("RPSresults.txt");
-    string results;
-    if (inFile.is_open()) {
-        while (getline(inFile, results)) {
-            if (results.find("Player Wins") != string::npos)
-                pWins = stoi(results.substr(results.find(":") + 2));
-            else if (results.find("Computer Wins") != string::npos)
-                cWins = stoi(results.substr(results.find(":") + 2));
-            else if (results.find("Ties") != string::npos)
-                ties = stoi(results.substr(results.find(":") + 2));
-        }
-        inFile.close();
-    }
-
-    pWins += pWinIn;
-    cWins += cWinIn;
-    ties += tieIn;
-
-    ofstream outFile("RPSresults.txt");
-    if (outFile.is_open()) {
-        outFile << "Player Wins: " << pWins << endl;
-        outFile << "Computer Wins: " << cWins << endl;
-        outFile << "Ties: " << ties << endl;
-        outFile.close();
-    }
-    else {
-        cout << "Unable to open file." << endl;
-    }
-
-}*/
-int main(){
+int main() {
     vector<int> playerWinsVec;
     vector<int> computerWinsVec;
     vector<int> tiesVec;
@@ -85,16 +30,16 @@ int main(){
     int computerWins = 0;
     int ties = 0;
     int input;
-	srand(static_cast<unsigned int>(time(0))); // Seed for random number generation
-    
+    srand(static_cast<unsigned int>(time(0))); // Seed for random number generation
+
     cout << "Adalyn Behan, Lab 4, 9/26/25" << endl;
     cout << "Welcome to Rock, Paper, Scissors." << endl;
 
-    
+
     do {
-		cout << "Player Wins: " << playerWins << " \tComputer Wins: " << computerWins << " \tTies: " << ties << endl;
+        cout << "Player Wins: " << playerWins << " \tComputer Wins: " << computerWins << " \tTies: " << ties << endl;
         cout << "Please input your choice: (1) Rock, (2) Paper, (3) Scissors: ";
-        
+
         cin >> input;
         while (cin.fail() || input < 1 || input > 3) {
             cin.clear();
@@ -106,7 +51,7 @@ int main(){
 
 
         cout << "\nComputer is choosing..." << endl;
-		computer = rand() % 3 + 1; // Random choice between 1 and 3
+        computer = static_cast<choice>(rand() % 3 + 1); // Random choice between 1 and 3
         cout << "Computer chose: " << computer << endl;
 
         switch (player) {
