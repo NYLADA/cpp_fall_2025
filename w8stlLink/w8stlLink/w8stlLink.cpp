@@ -1,48 +1,41 @@
-// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/* STL List - Week 8
+
+* Adalyn Behan
+
+* 10/7/25
+
+*Q4 - Using the STL List and #include<List>, create an integer List and pushback 5 #s. 
+
+Create a Function that can traverse the List and display the contents
+*/
 
 #include <iostream>
-#include <vector>
-#include <stack>
-#include <string>
 #include <list>
-#include <map>
-#include <unordered_map>
 using namespace std;
 
-// write a function to display the contents in the list
-void display(const list<char>& charList) {
-	cout << "Characters in the list: ";
-	for (const char& ch : charList) {
-		cout << ch << " ";
-	}
-	cout << endl;
+void display(const list<int>& l) {
+    for (int i : l) {
+        cout << i << ", ";
+    }
+    cout << "End" << endl;
 }
-
 
 int main() {
-	list<char> charList;
-	
-	charList.push_back('A');
-	charList.push_back('G');
-	charList.push_back('E');
-	charList.push_back('D');
+    list<int> numList;
+    cout << "Adalyn Behan, STL List Assignment, 10/14/25" << endl;
 
-	cout << "First character: " << charList.front() << endl;
-	cout << "Last character: " << charList.back() << endl;
+    numList.push_back(1);
+    numList.push_back(2);
+    numList.push_back(3);
+    numList.push_back(4);
+    numList.push_back(5);
 
-	display(charList);
+    display(numList);
 
-
-	return 0;
-
+    cout << "This is the end of the program" << endl;
+    return 0;
 
 }
-
-
-
-
-
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
