@@ -1,31 +1,19 @@
-// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/* Tower of Hanoi - Week 11
 
+* Adalyn Behan
+
+* 10/26/25
+
+*  Use Recursion to calculate x^y where x is the base of a # and y is the power of a number.
+
+*/
 #include <iostream>
-#include <vector>
-#include <stack>
-#include <string>
-#include <cmath>
-#include <list>
-#include <map>
-#include <unordered_map>
 using namespace std;
 
-// Recursive function to calculate factorial
-int factorial(int n) {
-    if (n == 0 || n == 1)  // Base case
-        return 1;
-    else                   // Recursive case
-        return n * factorial(n - 1);
-}
-
-int main() {
-    int number = 5;
-    cout << "Factorial of " << number << " is " << factorial(number) << endl;
-    return 0;
+int main(){
+    cout << "Adalyn Behan, 10/26/25, Power & Base Assignment" << endl;
 
 }
-
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

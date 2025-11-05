@@ -20,7 +20,7 @@ Create 4 names and at least 2 phone numbers per name
 using namespace std;
 
 int main(){
-    cout << "Adalyn Behan, Lab 6, 10/23/25:" << endl;
+    cout << "Adalyn Behan, Lab 6, 10/23/25\n" << endl;
 
     map<string, list<string>> phoneBook;
 
@@ -34,7 +34,7 @@ int main(){
 	for (auto& group : phoneBook) {
 		cout << group.first << ": ";
 		for(const auto& number : group.second) {
-			cout << number << ", ";
+			cout <<number << ", ";
 		}
 		cout << "\n" << endl;
 	}
