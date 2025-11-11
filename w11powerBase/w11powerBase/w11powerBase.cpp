@@ -1,8 +1,8 @@
-/* Tower of Hanoi - Week 11
+/* Power & Base - Week 11
 
 * Adalyn Behan
 
-* 10/26/25
+* 11/5/25
 
 *  Use Recursion to calculate x^y where x is the base of a # and y is the power of a number.
 
@@ -10,9 +10,32 @@
 #include <iostream>
 using namespace std;
 
+int power(int x, int y) {
+    if (y == 0) {
+        return 1; // Base case: any number to the power of 0 is 1
+    }
+    else {
+        return x * power(x, y - 1); // Recursive case
+    }
+}
 int main(){
-    cout << "Adalyn Behan, 10/26/25, Power & Base Assignment" << endl;
+    cout << "Adalyn Behan, 11/5/25, Power & Base Assignment" << endl;
+    int base;
+    int exp;
+    int result;
 
+    cout << "Enter a base number: ";
+	cin >> base;
+   
+    cout << "\nEnter an exponent number: ";
+	cin >> exp;
+    
+    result = power(base, exp);
+    cout << "\n" << base << " to the power of " << exp << " is: " << result << endl;
+
+    cout << "This is the end of the program." << endl;
+	return 0;
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

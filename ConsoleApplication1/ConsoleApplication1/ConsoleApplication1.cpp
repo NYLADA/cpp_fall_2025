@@ -12,19 +12,34 @@
 using namespace std;
 
 // Recursive function to calculate factorial
-int factorial(int n) {
-    if (n == 0 || n == 1)  // Base case
-        return 1;
-    else                   // Recursive case
-        return n * factorial(n - 1);
-}
-
+#include <iostream>
+using namespace std;
+void toh(int, char, char, char);
 int main() {
-    int number = 5;
-    cout << "Factorial of " << number << " is " << factorial(number) << endl;
-    return 0;
-
+	char s = 'A';
+	char t = 'B';
+	char d = 'C';
+	toh(3, s, t, d);
+	return 0;
 }
+void toh(int n, char src, char temp, char dest)
+// src to temp. src to dest, temp to dest
+{
+	if (n == 1)
+	{
+		cout << "\nn = " << n << " " << src << " --> " << dest;
+		return;
+	}
+	toh(n - 1, src, dest, temp);
+	// src to dest, src to temp, dest to temp
+	cout << "\n";
+	toh(1, src, temp, dest);
+	cout << "\n";
+	toh(n - 1, temp, src, dest);
+}
+
+
+
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

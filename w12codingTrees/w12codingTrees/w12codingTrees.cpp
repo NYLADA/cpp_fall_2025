@@ -1,40 +1,29 @@
-/* Tower of Hanoi - Week 11
+/* Code Trees - Week 12
 
 * Adalyn Behan
 
 * 11/5/25
 
-* Use recursion to solve the Tower of Hanoi problem for n= 4 bits.
+*  Write a class or struct Node with an int as data and a left and right pointer.
+
+Create a Method that will create a new node assign the transferred # to data and create 2 new links (left and right)
+
+Add nodes and data to code your Tree from the previous Questions
 
 */
 
 #include <iostream>
 using namespace std;
 
-void toh(int n, char source, char temp, char dest ) {
-
-    if (n == 1) {  // when there is only 1 n left
-		cout << "\n from " << source << " --> " << dest << endl; 
-        return; 
-    }
-	toh(n - 1, source, dest, temp); // recursive call
-	cout << "\n from " << source << " --> " << dest << endl;  //
-	toh(n - 1, temp, source, dest);  // recursive call
-	
-}
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};
 
 int main(){
-    cout << "Adalyn Behan, 11/5/25. Tower of Hanoi Assignment" << endl;
-	char A = 'A'; //names of towers
-	char B = 'B';
-	char C = 'C';
-    toh(4, A, B, C); 
-
-    cout << "This is the end of the program." << endl;
-	return 0;
-
+    cout << "Adalyn Behan, Coding Trees Assignment, 11/5/25" << endl;
 }
-
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

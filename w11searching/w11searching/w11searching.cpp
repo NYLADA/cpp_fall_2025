@@ -1,18 +1,45 @@
-/* Tower of Hanoi - Week 11
+/* Searching - Week 11
 
 * Adalyn Behan
 
-* 10/26/25
+* 11/5/25
 
 *  How can Recursion be used to search for a letter within a string?
 
 */
 #include <iostream>
+#include <string>
 using namespace std;
 
+void wordSearch(string str, char letter, int i) {
+    // Base case: if index reaches the length of the string, letter not found
+    if (i >= str.length()) {
+        cout << "Letter '" << letter << "' not found in the string." << endl;
+        return;
+    }
+    // If the current character matches the letter, print its position
+    if (str[i] == letter) {
+        cout << "Letter '" << letter << "' found in " << str << endl;
+        return;
+    }
+    // Recursive call to check the next character
+    wordSearch(str, letter, i + 1);
+}
 int main(){
-    cout << " Adalyn Behan, 10/26/25, Searching Assignment" << endl;
+    cout << " Adalyn Behan, 11/5/25, Searching Assignment" << endl;
+    string word;
+	char letter;
 
+	cout << "Enter a string: ";
+	getline(cin, word);
+
+	cout << "Enter a letter to search for: ";
+	cin >> letter;
+    wordSearch(word, letter, 0);
+
+    cout << "This is the end of the program." << endl;
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
