@@ -8,36 +8,32 @@
 #include <cmath>
 #include <list>
 #include <map>
+#include <set>
 #include <unordered_map>
 using namespace std;
+//Write a program that will prompt the user to enter a #. 
+// Create and Call a Recursive Function that will add all numbers from 1 to # 
+// (Function should call itself until # or 1 is reached)
 
-// Recursive function to calculate factorial
-#include <iostream>
-using namespace std;
-void toh(int, char, char, char);
-int main() {
-	char s = 'A';
-	char t = 'B';
-	char d = 'C';
-	toh(3, s, t, d);
-	return 0;
-}
-void toh(int n, char src, char temp, char dest)
-// src to temp. src to dest, temp to dest
-{
-	if (n == 1)
-	{
-		cout << "\nn = " << n << " " << src << " --> " << dest;
-		return;
+int sum(int x) {
+	if (x == 1) {
+		return 1;
 	}
-	toh(n - 1, src, dest, temp);
-	// src to dest, src to temp, dest to temp
-	cout << "\n";
-	toh(1, src, temp, dest);
-	cout << "\n";
-	toh(n - 1, temp, src, dest);
+	else {
+		return x + sum(x - 1);
+	}
 }
+int main()
+{
+	int num;
+	cout << "Enter a number: ";
+	cin >> num;
 
+	cout << "The sum of numbers from 1 to " << num << " is: " << sum(num) << endl;
+
+    return 0;
+
+}
 
 
 

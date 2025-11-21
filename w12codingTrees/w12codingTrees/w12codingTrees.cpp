@@ -12,17 +12,27 @@ Add nodes and data to code your Tree from the previous Questions
 
 */
 
+#include "codingTrees.h"
 #include <iostream>
 using namespace std;
 
-struct Node {
-    int data;
-    Node* left;
-    Node* right;
-};
-
 int main(){
     cout << "Adalyn Behan, Coding Trees Assignment, 11/5/25" << endl;
+    // root node
+    Node* root = createNode(1);
+
+    // branches to the left
+    root->left = createNode(3);
+    root->left->left = createNode(6);
+    root->left->right = createNode(7);
+
+    // branches to the right
+    root->right = createNode(2);
+    root->right->left = createNode(4);
+    root->right->right = createNode(5);
+
+    cout << "This is the end of the program." << endl;
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

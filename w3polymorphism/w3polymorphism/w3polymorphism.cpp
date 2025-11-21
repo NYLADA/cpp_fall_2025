@@ -15,10 +15,10 @@ using namespace std;
 
 class Character {
 public:
-    virtual void describe() const {
+	virtual void describe() const {  // base class method
         cout << "I am a main character." << endl;
     }
-    virtual ~Character() {}
+	virtual ~Character() {}  // virtual destructor
 };
 
 class Wizard : public Character {
@@ -33,7 +33,7 @@ public:
         cout << "I am a wizard with " << mana << " mana, casting " << spell << "." << endl;
     }
 
-    void castSpell() const {
+	void castSpell() const {  // specific method
         cout << "Casting " << spell << "!" << endl;
     }
 };

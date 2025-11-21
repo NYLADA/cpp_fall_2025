@@ -61,12 +61,13 @@ void postDisplay(Node* root) {
 
 int main(){
     cout << "Adalyn Behan, Traversals Assignment, 11/5/25" << endl;
-
-
+	// root node
 	Node* root = createNode(1);
+	// braches to the left
 	root->left = createNode(3);
 	root->left->left = createNode(6);
 	root->left->right = createNode(7);
+	// branches to the right	
 	root -> right = createNode(2);
 	root -> right ->left = createNode(4);
 	root -> right -> right = createNode(5);
